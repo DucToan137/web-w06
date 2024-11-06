@@ -74,27 +74,6 @@ const fetchAllFilteredProducts = async (req, res) => {
     }
 };
 
-const getProductById = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const product=await productService.getProductById(id);
-        if (!product) {
-            return res.json({
-                data:null,
-            });
-        }
-        const populatedProduct = populateProduct(product);
-        return res.json({
-            data:populatedProduct,
-        })
-    }
-    catch (e) {
-        return res.json({
-            data:null,
-        })
-    }
-};
-
 // const searchProducts = async (req, res) => {
 //     try {
 //         const { search } = req.query;
@@ -129,4 +108,4 @@ const getProductById = async (req, res) => {
 //         });
 //     }
 // };
-export { fetchAllFilteredProducts, getProductById };
+export { fetchAllFilteredProducts };
