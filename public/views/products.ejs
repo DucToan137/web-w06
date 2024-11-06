@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <!-- <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css"> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/shop.js" defer></script>
 </head>
 
 <body>
@@ -465,7 +464,11 @@
                 <% products.forEach(product => { %>
                     <div class="bg-white shadow rounded overflow-hidden group cursor-pointer">
                         <div class="relative">
-                            <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full cursor-pointer">
+                            <img 
+                            src="<%= product.image %>" alt="<%= product.name %>" 
+                            class="w-full cursor-pointer"
+                            productId="<%= product.id %>"
+                            onclick="window.location.href='/productDetails/get/<%=product.productId%>'">
                         </div>
                         <div class="pt-4 pb-3 px-4">
                             <a href="#">
@@ -578,6 +581,7 @@
         </div>
     </div>
     <!-- ./copyright -->
+    <script src="../js/products.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>

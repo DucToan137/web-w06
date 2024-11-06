@@ -7,9 +7,7 @@ const getProductDetailsByID=async(req,res)=>{
         const {id}=req.params;
         const productDetails=await productDetailService.get(id);
         if(productDetails){
-            return res.json({
-                data:productDetails,
-            });
+            return res.render('productDetails',{productDetails});
         }else{
             return res.json({
                 data:null,
@@ -23,25 +21,25 @@ const getProductDetailsByID=async(req,res)=>{
     }
 }
 
-const getProductAllDetails=async(req,res)=>{
-    try{
-        const productDetails=await productDetailService.getAll();
-        if(productDetails){
-            return res.json({
-                data:productDetails,
-            });
-        }
-        else{
-            return res.json({
-                data:null,
-            })
-        }
-    }
-    catch(error){
-        return res.json({
-            data:null,
-        });
-    }
-}
+// const getProductAllDetails=async(req,res)=>{
+//     try{
+//         const productDetails=await productDetailService.getAll();
+//         if(productDetails){
+//             return res.json({
+//                 data:productDetails,
+//             });
+//         }
+//         else{
+//             return res.json({
+//                 data:null,
+//             })
+//         }
+//     }
+//     catch(error){
+//         return res.json({
+//             data:null,
+//         });
+//     }
+// }
 
-export {getProductDetailsByID,getProductAllDetails};
+export {getProductDetailsByID};
